@@ -63,6 +63,19 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+        <div class="post-details">
+          <strong class="likes">{{post.likes}} likes</strong>
+          <div class="description" *ngIf="post.description.length">
+            <strong>{{post.name}}</strong> {{post.description}}
+          </div>
+          <div class="comments" *ngIf="post.comments.length">
+            <ul>
+              <li *ngFor="let comment of post.comments">
+                <strong>{{comment.userName}}</strong> {{comment.comment}}
+              </li>
+            </ul>
+          </div>
+        </div>
       </li>
     </ul>
   </div>

@@ -1,12 +1,44 @@
 import { Component, OnInit } from "@angular/core";
 import faker from "faker";
 
-function generatePost() {
+interface Comment {
+  userName: string;
+  comment: string;
+}
+
+interface Post {
+  name: string;
+  avatar: string;
+  image: string;
+  likes: number;
+  description: string;
+  comments: Comment[];
+  createdAt: string;
+}
+
+const generateComment = (): Comment => {
+  const userName = faker.internet.userName().toLowerCase();
+  const comment = faker.lorem.sentence();
+  return { userName, comment };
+};
+
+const generateComments = (count: number) => {
+  if (count <= 0) return [];
+  let comments: Comment[] = [];
+  for (let i = 0; i < count; i++) comments.push(generateComment());
+  return comments;
+};
+
+const generatePost = (): Post => {
   const name = faker.internet.userName();
   const avatar = faker.internet.avatar();
   const image = faker.image.image();
-  return { name, avatar, image };
-}
+  const likes = Math.round(Math.random() * 1000);
+  const comments = generateComments(Math.round(Math.random() * 3));
+  const createdAt = `${Math.round(Math.random() * 10)} Days Ago`;
+  const description = Math.random() >= 0.5 ? faker.lorem.sentence() : "";
+  return { name, avatar, image, likes, description, comments, createdAt };
+};
 @Component({
   selector: "app-home",
   templateUrl: "home.page.html",

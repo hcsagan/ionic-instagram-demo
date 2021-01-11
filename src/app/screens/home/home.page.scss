@@ -98,8 +98,19 @@ $story-size: 60px;
         }
       }
       .post-details {
-        padding: 0 16px;
-        font-size: 0.8rem;
+        padding: 0 12px;
+        font-size: 0.85rem;
+        .likes {
+          display: block;
+          margin-bottom: 8px;
+        }
+        .comments li {
+          margin-top: 4px;
+        }
+        .date {
+          color: #777;
+          margin: 8px 0;
+        }
       }
     }
   }

@@ -35,7 +35,7 @@ const generatePost = (): Post => {
   const image = faker.image.image();
   const likes = Math.round(Math.random() * 1000);
   const comments = generateComments(Math.round(Math.random() * 3));
-  const createdAt = `${Math.round(Math.random() * 10)} Days Ago`;
+  const createdAt = `${Math.round(Math.random() * 10) + 1} Days Ago`;
   const description = Math.random() >= 0.5 ? faker.lorem.sentence() : "";
   return { name, avatar, image, likes, description, comments, createdAt };
 };

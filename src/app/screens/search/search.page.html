@@ -1,15 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Arama </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Arama</ion-title>
+  <ion-header>
+    <ion-toolbar id="header">
+      <ion-searchbar
+        placeholder="Search"
+        cancelButtonIcon="hardware-chip-outline"
+      ></ion-searchbar>
+      <i-buttons slot="end"
+        ><ion-icon name="hardware-chip-outline"></ion-icon
+      ></i-buttons>
     </ion-toolbar>
+    <div id="chips">
+      <ul>
+        <li><ion-icon name="tv"></ion-icon> IGTV</li>
+        <li>Seyahat</li>
+        <li>Mimari</li>
+        <li>Dekorasyon</li>
+        <li>Yaşam Tarzı</li>
+        <li>Vesaire</li>
+        <li>Vs</li>
+      </ul>
+    </div>
   </ion-header>
-
-  <app-explore-container name="Arama page"></app-explore-container>
+  <div class="grid-container">
+    <div *ngFor="let photo of posts; index as i">
+      <img src="{{photo}}" alt="" />
+    </div>
+  </div>
 </ion-content>

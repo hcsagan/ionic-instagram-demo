@@ -1,1 +1,15 @@
-
+.icon-selected {
+  display: none;
+}
+ion-icon {
+  font-size: 1.5rem;
+}
+ion-tab-button.tab-selected {
+  .icon-unselected {
+    display: none;
+  }
+  .icon-selected {
+    color: black;
+    display: block;
+  }
+}

@@ -10,6 +10,8 @@ interface Post {
   name: string;
   avatar: string;
   image: string;
+  liked: boolean;
+  saved: boolean;
   likes: number;
   description: string;
   comments: Comment[];
@@ -33,11 +35,23 @@ const generatePost = (): Post => {
   const name = faker.internet.userName();
   const avatar = faker.internet.avatar();
   const image = faker.image.image();
+  const liked = Math.random() >= 0.75;
+  const saved = Math.random() <= 0.1;
   const likes = Math.round(Math.random() * 1000);
   const comments = generateComments(Math.round(Math.random() * 3));
   const createdAt = `${Math.round(Math.random() * 10) + 1} Days Ago`;
   const description = Math.random() >= 0.5 ? faker.lorem.sentence() : "";
-  return { name, avatar, image, likes, description, comments, createdAt };
+  return {
+    name,
+    avatar,
+    image,
+    liked,
+    saved,
+    likes,
+    description,
+    comments,
+    createdAt,
+  };
 };
 @Component({
   selector: "app-home",
@@ -47,7 +61,7 @@ const generatePost = (): Post => {
 export class HomePage implements OnInit {
   constructor() {}
   stories: Object[] | false = [];
-  posts: Object[] = [];
+  posts: Post[] = [];
 
   async ngOnInit() {
     const users = await fetch(
@@ -68,5 +82,25 @@ export class HomePage implements OnInit {
     }
     this.posts = posts;
     console.log(this.posts);
+  }
+
+  toggleLike(i: number) {
+    const current = this.posts[i].liked;
+    const likes = current ? this.posts[i].likes - 1 : this.posts[i].likes + 1;
+    const newPost = {
+      ...this.posts[i],
+      liked: !current,
+      likes,
+    };
+    this.posts[i] = newPost;
+  }
+
+  toggleSave(i: number) {
+    const current = this.posts[i].saved;
+    const newPost = {
+      ...this.posts[i],
+      saved: !current,
+    };
+    this.posts[i] = newPost;
   }
 }

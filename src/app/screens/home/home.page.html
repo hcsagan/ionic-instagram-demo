@@ -47,8 +47,17 @@
         <ion-grid class="actions" fixed>
           <ion-row>
             <ion-col>
-              <button>
-                <ion-icon class="heart-icon" name="heart-outline"></ion-icon>
+              <button (click)="toggleLike(i)">
+                <ion-icon
+                  *ngIf="!post.liked"
+                  class="heart-icon"
+                  name="heart-outline"
+                ></ion-icon>
+                <ion-icon
+                  *ngIf="post.liked"
+                  class="heart-icon"
+                  name="heart"
+                ></ion-icon>
               </button>
               <button>
                 <ion-icon name="chatbubble-outline"></ion-icon>
@@ -59,7 +68,13 @@
             </ion-col>
             <ion-col size="auto"></ion-col>
             <ion-col size="1">
-              <button><ion-icon name="bookmark-outline"></ion-icon></button>
+              <button (click)="toggleSave(i)">
+                <ion-icon
+                  *ngIf="!post.saved"
+                  name="bookmark-outline"
+                ></ion-icon>
+                <ion-icon *ngIf="post.saved" name="bookmark"></ion-icon>
+              </button>
             </ion-col>
           </ion-row>
         </ion-grid>

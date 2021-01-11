@@ -87,10 +87,15 @@ $story-size: 60px;
           background-color: white;
           padding: 0;
           margin: 0;
+          outline: none;
           .heart-icon {
             font-size: 28px;
-            margin-bottom: -3px;
+            margin-bottom: -2px;
+            &[name="heart"] {
+              color: #ed4956;
+            }
           }
+
           ion-icon {
             font-size: 24px;
             margin-right: 12px;

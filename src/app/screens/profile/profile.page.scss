@@ -1,0 +1,159 @@
+$story-size: 60px;
+
+#header {
+  padding: 16px;
+  display: flex;
+
+  #avatar {
+    flex: 1 1 1;
+    img {
+      border-radius: 100px;
+    }
+  }
+  #details {
+    flex: 3 3 3;
+    width: 100%;
+    padding: 8px;
+    padding-left: 16px;
+    #numbers {
+      color: #181818;
+      display: flex;
+      text-align: center;
+      .number {
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+      .description {
+        font-size: 0.7rem;
+      }
+      & > span {
+        display: block;
+        width: 100%;
+        flex: 0 0 1;
+      }
+      & > span > span {
+        display: block;
+      }
+    }
+    #edit {
+      width: 100%;
+      padding: 8px;
+      background-color: white;
+      border: 1px solid #e8e8e8;
+      border-radius: 4px;
+      margin-top: 8px;
+      font-weight: 600;
+      line-height: 0.8rem;
+    }
+  }
+}
+
+#profile-details,
+#stories {
+  padding: 0 16px 16px 16px;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  border-bottom: 1px solid #e8e8e8;
+  h5 {
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  h5,
+  p,
+  a {
+    padding: 0;
+    margin: 4px 0;
+  }
+}
+#stories {
+  #stories-header {
+    display: flex;
+    #stories-left {
+      flex-grow: 1;
+    }
+    #stories-right {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-grow: 0;
+      padding-right: 16px;
+      ion-icon {
+        font-size: 18px;
+        color: #ababab;
+      }
+    }
+  }
+  padding-top: 16px;
+  padding-right: 0;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    display: flex;
+    li {
+      flex: 0 0 0;
+      .story {
+        justify-content: center;
+        margin-right: 16px;
+        .photo {
+          width: $story-size;
+          height: $story-size;
+          margin: 8px 0;
+          background: #f5f5f5;
+          padding: 2px;
+          border-radius: $story-size;
+          img {
+            border-radius: $story-size;
+            border: 2px white solid;
+          }
+          &.new {
+            background-color: white;
+            border: 1px solid #e8e8e8;
+            box-sizing: border-box;
+            justify-items: center;
+            align-items: center;
+            display: flex;
+            ion-icon {
+              margin: auto;
+            }
+          }
+        }
+        span {
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: $story-size;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+#icons {
+  border-bottom: 1px solid #e8e8e8;
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+#posts {
+  &,
+  ion-row,
+  ion-col {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
+    --ion-grid-row-padding: 0;
+  }
+  ion-col:nth-child(3n + 2) {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+  }
+  img {
+    height: 33.3vw;
+    width: 33.3vw;
+    object-fit: cover;
+  }
+}

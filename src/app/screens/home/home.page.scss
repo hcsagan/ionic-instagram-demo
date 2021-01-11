@@ -1,0 +1,102 @@
+$story-size: 60px;
+#stories {
+  background-color: #f8f8f8;
+  padding: 8px 0;
+  border-bottom: 1px solid #eae9ea;
+  #heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: bold;
+    span {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    display: flex;
+    overflow-x: scroll;
+    padding: 0 4px;
+    li {
+      flex: 0 0 0;
+      .story {
+        padding: 0 8px;
+        justify-content: center;
+        .photo {
+          width: $story-size;
+          height: $story-size;
+          margin: 8px 0;
+          background: linear-gradient(215deg, #d274a1, orange);
+          padding: 2px;
+          border-radius: $story-size;
+          img {
+            border-radius: $story-size;
+            border: 2px white solid;
+          }
+        }
+        span {
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: $story-size;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+#posts {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      .post-header {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        .post-avatar {
+          flex: 0 0 0;
+          width: 32px;
+          height: 32px;
+          object-fit: contain;
+          border-radius: 20px;
+          margin-right: 12px;
+        }
+        .post-username {
+          flex: 1 1 1;
+          width: 100%;
+          font-weight: 600;
+          font-size: 0.9rem;
+        }
+        .post-options {
+          flex: 0 0 0;
+          ion-icon {
+            font-size: 20px;
+          }
+        }
+      }
+      .actions {
+        button {
+          background-color: white;
+          padding: 0;
+          margin: 0;
+          .heart-icon {
+            font-size: 28px;
+            margin-bottom: -3px;
+          }
+          ion-icon {
+            font-size: 24px;
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+  }
+}

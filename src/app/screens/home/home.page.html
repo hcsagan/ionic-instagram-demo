@@ -1,17 +1,69 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Instagram</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Instagram</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div id="stories" *ngIf="stories">
+    <div id="heading">
+      <span>Stories</span>
+      <span>
+        <ion-icon name="play"></ion-icon>
+        Watch All</span
+      >
+    </div>
+    <ul>
+      <li *ngFor="let user of stories">
+        <div class="story">
+          <div class="photo">
+            <img src="{{user.picture.large}}" alt="" />
+          </div>
+          <span>
+            {{user.name.first.toLowerCase()}}.{{user.name.last.toLowerCase()}}
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="posts">
+    <ul>
+      <li *ngFor="let post of posts; index as i">
+        <div class="post-header">
+          <img src="{{stories[i].picture.large}}" class="post-avatar" alt="" />
+          <div class="post-username">{{post.name}}</div>
+          <div class="post-options">
+            <ion-icon name="ellipsis-horizontal"></ion-icon>
+          </div>
+        </div>
+        <div class="photo">
+          <img src="{{post.image}}" alt="" />
+        </div>
+        <ion-grid class="actions" fixed>
+          <ion-row>
+            <ion-col>
+              <button>
+                <ion-icon class="heart-icon" name="heart-outline"></ion-icon>
+              </button>
+              <button>
+                <ion-icon name="chatbubble-outline"></ion-icon>
+              </button>
+              <button>
+                <ion-icon name="paper-plane-outline"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col size="auto"></ion-col>
+            <ion-col size="1">
+              <button><ion-icon name="bookmark-outline"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </li>
+    </ul>
+  </div>
 </ion-content>
